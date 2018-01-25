@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  email: 
+  address: 
+  photo: 
+  driver_admin_id: 
+  role: MyString
+
+two:
+  name: 
+  email: 
+  address: 
+  photo: 
+  driver_admin_id: 
+  role: MyString
