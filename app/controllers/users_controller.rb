@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def show
     ensure_logged_in
     @user = current_user
+
   end
 
 
