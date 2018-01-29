@@ -1956,3 +1956,21 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 51ms (Views: 24.0ms | ActiveRecord: 6.0ms)
 
 
+Started GET "/users/7" for 127.0.0.1 at 2018-01-30 02:22:56 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 49ms (Views: 20.7ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2018-01-30 02:22:58 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 45ms (Views: 20.4ms | ActiveRecord: 5.8ms)
+
+
