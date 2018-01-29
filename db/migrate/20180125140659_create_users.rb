@@ -7,8 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :photo
       t.references :driver_admin
       t.string :role
-      t.string :password
-      t.string :password_confirmation
+      t.string :password_digest, null: false
 
       t.timestamps
     end

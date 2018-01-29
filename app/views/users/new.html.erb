@@ -1,2 +1,9 @@
 <h1>Register<h1>
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |m| %>
+      <li> <%= m %> </li>
+  </ul>
+  <% end %>
+<% end %>    
 <%= render "user_registration_form", user: @user %>

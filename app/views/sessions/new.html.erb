@@ -1,0 +1,25 @@
+<h1> Log-In </h1>
+
+<div class="login-container">
+  <% flash.each do |key, value| %>
+  <% end %>
+  <%= form_tag sessions_path, method: :post do %>
+    <div class="login">
+      <%= label_tag :email %>
+      <%= email_field_tag :email, nil, class: "login-field" %>
+    </div>
+
+    <div class="login">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, nil, class: "login-field" %>
+    </div>
+
+    <div class="login">
+      <%= submit_tag 'Log-In', class: "login-btn" %>
+    </div>
+  <% end %>
+
+  <div class="alert">
+     <%= link_to 'Register', new_user_path  %>
+  </div>
+</div>
