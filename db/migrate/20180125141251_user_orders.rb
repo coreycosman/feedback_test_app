@@ -1,8 +1,8 @@
 class UserOrders < ActiveRecord::Migration[5.1]
   def change
-    create_table :user_orders do |t|
-      t.references :user_id
-      t.references :order_id
+    create_table :orders_users do |t|
+      t.references :user
+      t.references :order
     end
   end
 end

@@ -17,22 +17,22 @@ ActiveRecord::Schema.define(version: 20180125141251) do
 
   create_table "orders", force: :cascade do |t|
     t.date "date"
-    t.integer "pickup_start"
-    t.integer "pickup_end"
+    t.datetime "pickup_start"
+    t.datetime "pickup_end"
     t.string "food_description"
     t.boolean "request_pending"
-    t.integer "dropoff_latest"
-    t.integer "driver_pickup_time"
-    t.integer "driver_dropoff_time"
+    t.datetime "dropoff_latest"
+    t.datetime "driver_pickup_time"
+    t.datetime "driver_dropoff_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_orders", force: :cascade do |t|
-    t.bigint "user_id_id"
-    t.bigint "order_id_id"
-    t.index ["order_id_id"], name: "index_user_orders_on_order_id_id"
-    t.index ["user_id_id"], name: "index_user_orders_on_user_id_id"
+  create_table "orders_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_orders_users_on_order_id"
+    t.index ["user_id"], name: "index_orders_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
