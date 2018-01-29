@@ -1,0 +1,35 @@
+<h1> Order Form <h1>
+
+<%= form_for order do |f| %>
+  <div>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </div>
+  <div>
+    <%= f.label :pickup_start %>
+    <%= f.datetime_local_field :pickup_start %>
+  </div>
+  <div>
+    <%= f.label :pickup_end %>
+    <%= f.datetime_local_field :pickup_end %>
+  </div>
+  <div>
+    <%= f.label :food_description %>
+    <%= f.text_field :food_description %>
+  </div>
+  <div>
+    <%= f.label :request_pending %>
+    <%= f.datetime_local_field :date %>
+  </div>
+  <div>
+    <%= f.label :date %>
+    <%= f.datetime_local_field :date %>
+  </div>
+  <div>
+    <%= f.label :date %>
+    <%= f.datetime_local_field :date %>
+  </div>
+  <div>
+    <%= f.label :date %>
+    <%= f.datetime_local_field :date %>
+  </div>
