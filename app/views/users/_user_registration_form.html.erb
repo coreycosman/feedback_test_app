@@ -1,0 +1,38 @@
+<%= form_for user do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  <div>
+    <%= f.label :photo %>
+    <%= f.text_field :photo %>
+  </div>
+  <div>
+    <%= f.label :driver_admin_id %>
+    <%= f.text_field :driver_admin_id %>
+  </div>
+  <div>
+    <%= f.label :role %>
+    <%= f.text_field :role %>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <br>
+  </div>
+
+  <div>
+    <%= f.submit "Register" %>
+  </div>
+  <% end %>
