@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user.id), notice: "you have successfuly registered"
     else
+      flash.now[:alert] = @user.error.full_messages
       render 'new'
     end
   end
