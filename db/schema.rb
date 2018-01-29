@@ -42,8 +42,7 @@ ActiveRecord::Schema.define(version: 20180125141251) do
     t.string "photo"
     t.bigint "driver_admin_id"
     t.string "role"
-    t.string "password"
-    t.string "password_confirmation"
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["driver_admin_id"], name: "index_users_on_driver_admin_id"

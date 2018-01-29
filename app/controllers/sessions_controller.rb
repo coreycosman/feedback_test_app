@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+ class SessionsController < ApplicationController
 
   def new
   end
@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to users_path, notice: "You are Logged in"
+      redirect_to user_path(user), notice: "You are Logged in"
     else
-      flash.now[:error] = "Please Log in"
+      flash.now[:error] = "Please Try Again"
       render new_sessions_path
     end
   end
