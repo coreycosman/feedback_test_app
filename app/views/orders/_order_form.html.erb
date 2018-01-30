@@ -1,35 +1,13 @@
 <h1> Order Form <h1>
 
-<%= form_for order do |f| %>
-  <div>
-    <%= f.label :date %>
-    <%= f.date_field :date %>
-  </div>
+<%= form_for ([@user, @order]), url: user_orders_path(user_id: @user.id, id: @order.id)  do |f| %>
+<% @order = Order.new %>
+
   <div>
     <%= f.label :pickup_start %>
     <%= f.datetime_local_field :pickup_start %>
   </div>
-  <div>
-    <%= f.label :pickup_end %>
-    <%= f.datetime_local_field :pickup_end %>
+
+    <%= f.submit data: {confirm: "Your Order is Submitted"} %>
   </div>
-  <div>
-    <%= f.label :food_description %>
-    <%= f.text_field :food_description %>
-  </div>
-  <div>
-    <%= f.label :request_pending %>
-    <%= f.datetime_local_field :date %>
-  </div>
-  <div>
-    <%= f.label :date %>
-    <%= f.datetime_local_field :date %>
-  </div>
-  <div>
-    <%= f.label :date %>
-    <%= f.datetime_local_field :date %>
-  </div>
-  <div>
-    <%= f.label :date %>
-    <%= f.datetime_local_field :date %>
-  </div>
+<% end %>

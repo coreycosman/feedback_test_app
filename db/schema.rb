@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 20180125141251) do
   enable_extension "plpgsql"
 
   create_table "orders", force: :cascade do |t|
+    t.string "order_status"
     t.date "date"
     t.datetime "pickup_start"
     t.datetime "pickup_end"
     t.string "food_description"
-    t.boolean "request_pending"
     t.datetime "dropoff_latest"
     t.datetime "driver_pickup_time"
     t.datetime "driver_dropoff_time"

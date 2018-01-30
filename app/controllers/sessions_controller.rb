@@ -10,7 +10,7 @@
       redirect_to user_path(user), notice: "You are Logged in"
     else
       flash.now[:error] = "Please Try Again"
-      render new_sessions_path
+      render new_session_path
     end
   end
 

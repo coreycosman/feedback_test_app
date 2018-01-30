@@ -1974,3 +1974,1318 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 45ms (Views: 20.4ms | ActiveRecord: 5.8ms)
 
 
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (121.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "feedback_test_app_development"[0m
+  [1m[35m (120.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "feedback_test_app_test"[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4290399968821771245)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20180125140659)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "address" character varying, "photo" character varying, "driver_admin_id" bigint, "role" character varying, "password_digest" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_driver_admin_id" ON "users"  ("driver_admin_id")[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180125140659"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20180125141206)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "order_status" character varying DEFAULT NULL, "date" date, "pickup_start" timestamp, "pickup_end" timestamp, "food_description" character varying, "dropoff_latest" timestamp, "driver_pickup_time" timestamp, "driver_dropoff_time" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180125141206"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to UserOrders (20180125141251)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "orders_users" ("id" bigserial primary key, "user_id" bigint, "order_id" bigint)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_orders_users_on_user_id" ON "orders_users"  ("user_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_orders_users_on_order_id" ON "orders_users"  ("order_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180125141251"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-01-30 05:23:14.378217"], ["updated_at", "2018-01-30 05:23:14.378217"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4290399968821771245)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-01-30 09:35:52 +0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 233ms (Views: 221.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-30 09:35:58 +0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_user_registration_form.html.erb (22.0ms)
+  Rendered users/new.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 93ms (Views: 49.3ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-01-30 09:36:24 +0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5HflRRuV/JjqrfEeeZ2FGagA2ViOO8KTgHW03gve6sLXJjIhAYt/MPPXTRVJDfudC5PI7PvOBMu3SoUUt3ghEQ==", "user"=>{"name"=>"meo", "email"=>"meow@meow.meow", "address"=>"meow", "photo"=>"meow", "driver_admin_id"=>"meow", "role"=>"meow", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+Unpermitted parameter: :driver_admin_id
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "address", "photo", "role", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "meo"], ["email", "meow@meow.meow"], ["address", "meow"], ["photo", "meow"], ["role", "meow"], ["password_digest", "$2a$10$YI4jglYBFSNH4kbi2FdUjOEdXtyCEOUKGn.1Xof7Grt6JKfYamvr."], ["created_at", "2018-01-30 05:36:24.475406"], ["updated_at", "2018-01-30 05:36:24.475406"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 87ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:36:24 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (7.1ms)
+  Rendered users/show.html.erb within layouts/application (9.5ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([@user, @order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314849765080'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314849409720'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:37:50 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (204.9ms)
+  Rendered users/show.html.erb within layouts/application (207.1ms)
+Completed 500 Internal Server Error in 215ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007fe6ea94e728>:0x007fe6e8cf3c90>
+Did you mean?  @user):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314862467700'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314862562180'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:37:51 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (206.0ms)
+  Rendered users/show.html.erb within layouts/application (208.1ms)
+Completed 500 Internal Server Error in 216ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007fe6ea94e728>:0x007fe6e6aa6c00>
+Did you mean?  @user):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314860675480'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314844579820'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:38:56 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.3ms)
+  Rendered users/show.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for order do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314916830140'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314916777240'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:39:48 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.8ms)
+  Rendered users/show.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([current_user, @order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314930316080'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314879871700'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:41:05 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (8.0ms)
+  Rendered users/show.html.erb within layouts/application (10.3ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 8.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([@user, @order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314848506940'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314848278220'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:41:35 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 86ms (Views: 82.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:42:30 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (225.5ms)
+  Rendered users/show.html.erb within layouts/application (227.7ms)
+Completed 500 Internal Server Error in 236ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007fe6e71b8070>:0x007fe6eac2bea0>
+Did you mean?  @user):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314878950620'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314878862460'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:42:56 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.6ms)
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314944148020'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314944166720'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:58:22 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (4.1ms)
+  Rendered users/show.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 5.8ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([current_user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314944018620'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314891317040'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:59:15 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (3.0ms)
+  Rendered users/show.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([current_user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314862724660'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314862812560'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:59:27 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 21.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 09:59:45 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.5ms)
+  Rendered users/show.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([current_user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314906157540'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314931866120'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 10:01:42 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (208.8ms)
+  Rendered users/show.html.erb within layouts/application (210.9ms)
+Completed 500 Internal Server Error in 242ms (ActiveRecord: 5.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007fe6eae86f60>:0x007fe6eae84df0>
+Did you mean?  @user):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314880032920'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314880155540'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 10:02:07 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.8ms)
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314859885000'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314914601180'
+Started PUT "/__web_console/repl_sessions/cdb1c65cbbd088a1585d7413ea992485" for 127.0.0.1 at 2018-01-30 10:02:42 +0400
+Started PUT "/__web_console/repl_sessions/cdb1c65cbbd088a1585d7413ea992485" for 127.0.0.1 at 2018-01-30 10:02:43 +0400
+Started PUT "/__web_console/repl_sessions/cdb1c65cbbd088a1585d7413ea992485" for 127.0.0.1 at 2018-01-30 10:02:46 +0400
+Started PUT "/__web_console/repl_sessions/cdb1c65cbbd088a1585d7413ea992485" for 127.0.0.1 at 2018-01-30 10:03:07 +0400
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:13:21 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 63ms (Views: 54.7ms | ActiveRecord: 5.6ms)
+
+
+Started DELETE "/sessions/1" for 127.0.0.1 at 2018-01-30 17:13:24 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aeldFpxOtUvQ/HnmTPXxscoeF1Hm9lu60/5SCtFIaUOLO6V+EkPnz8UWHLnwZCZaIcU+aGl/yq/+ebKaV8gYDg==", "id"=>"1"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:13:24 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-30 17:13:27 +0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_user_registration_form.html.erb (4.0ms)
+  Rendered users/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 62ms (Views: 30.6ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-01-30 17:13:50 +0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wRucHrhDFCJ4hB1cpsALv1Wsr/XwDps6obtNcPPC8n/ySkt6ol2XimH+oVeWUHU79j++QYX7XWKWhHy6T2Q5rA==", "user"=>{"name"=>"meow", "email"=>"meow@meow.com", "address"=>"meow", "photo"=>"meow", "driver_admin_id"=>"meow", "role"=>"meow", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "address", "photo", "driver_admin_id", "role", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "meow"], ["email", "meow@meow.com"], ["address", "meow"], ["photo", "meow"], ["driver_admin_id", 0], ["role", "meow"], ["password_digest", "$2a$10$CxomOZu3GfwQlVi6CMfH9eSxZN8LuzXPYWt5jg.LcVyhm8.VArRZG"], ["created_at", "2018-01-30 13:13:50.845544"], ["updated_at", "2018-01-30 13:13:50.845544"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 81ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-01-30 17:13:50 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.7ms)
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314932227400'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314879211020'
+Started PUT "/__web_console/repl_sessions/ed9be1021f59477d3480c379f6ed43e5" for 127.0.0.1 at 2018-01-30 17:15:52 +0400
+Started PUT "/__web_console/repl_sessions/ed9be1021f59477d3480c379f6ed43e5" for 127.0.0.1 at 2018-01-30 17:15:53 +0400
+Started PUT "/__web_console/repl_sessions/ed9be1021f59477d3480c379f6ed43e5" for 127.0.0.1 at 2018-01-30 17:15:56 +0400
+Started PUT "/__web_console/repl_sessions/ed9be1021f59477d3480c379f6ed43e5" for 127.0.0.1 at 2018-01-30 17:15:58 +0400
+Started GET "/users/2" for 127.0.0.1 at 2018-01-30 17:17:22 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (212.5ms)
+  Rendered users/show.html.erb within layouts/application (214.8ms)
+Completed 500 Internal Server Error in 224ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007fe6f2aa4e30>:0x007fe6ec282c08>
+Did you mean?  @user):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314877547060'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314890631980'
+Started GET "/users/2" for 127.0.0.1 at 2018-01-30 17:17:33 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `new_sessions_path' for #<UsersController:0x007fe6f1173088>
+Did you mean?  new_session_path
+               new_session_url
+               new_user_path
+               sessions_path):
+  
+app/controllers/application_controller.rb:13:in `ensure_logged_in'
+app/controllers/users_controller.rb:19:in `show'
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:17:41 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 25ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-30 17:17:44 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 37ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-30 17:17:58 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JnzjUn/GLvO716lcHOquzR7oyuED1FEMAkxpusNe4ZsqLLC5aSmSnFW9nIRXNJa2XowymFuIZF9mAvRSfSBJSQ==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 78ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:17:58 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (188.7ms)
+  Rendered users/show.html.erb within layouts/application (191.1ms)
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007fe6f2aa4e30>:0x007fe6ead88280>
+Did you mean?  @user):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([user, order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314932320220'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314879633420'
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:18:16 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-30 17:18:18 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 42ms (Views: 38.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-30 17:18:29 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TsUI8uEZqZIBqM1C3ipGPg6hXw8x52cUT/egKmuuHMdClVsZ9/YV/e/C+JqV9H5FTsWndmm7UkcruT3C1dC0FQ==", "email"=>"meow@meow.com", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 73ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-01-30 17:18:29 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.8ms)
+  Rendered users/show.html.erb within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([@user, @order]) do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314845633380'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314847632480'
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:19:30 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/sessions/2" for 127.0.0.1 at 2018-01-30 17:19:32 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"iW1Hx8yWJjImrVyiwBiN43qFmE/ws+gYtXWwBKixfwCDvaqQ5IzKgEij+wyIa+vkSS7nSN4tmTEupZ+ZyGqKCA==", "id"=>"2"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:19:32 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-30 17:19:34 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 39ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-30 17:19:49 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Mh6pmhXch4bAeKWkxWxDkbocv10XwrS7r2JoRMJCHo4+TvpxAzM76S4SkHyOsnvq+nhHJE+egejLLPWsfDy2XA==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 73ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:19:49 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (11.9ms)
+  Rendered users/show.html.erb within layouts/application (14.6ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `date' for #<User:0x007fe6f28bde50>
+Did you mean?  update):
+    3: <%= form_for user do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+    7:   </div>
+    8:   <div>
+    9:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:6:in `block in _app_views_orders__order_form_html_erb__2598723424585986726_70314879827160'
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314879827160'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314944226680'
+Started PUT "/__web_console/repl_sessions/8cba348f58f3d19aca5594b0a4220701" for 127.0.0.1 at 2018-01-30 17:20:09 +0400
+Started PUT "/__web_console/repl_sessions/8cba348f58f3d19aca5594b0a4220701" for 127.0.0.1 at 2018-01-30 17:20:09 +0400
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:20:56 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/sessions/1" for 127.0.0.1 at 2018-01-30 17:20:58 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Emy4rdcpzhUJClagdbinEsvhOJdyMquqB1yaG7AcZI0YvFX6/zMip2cE8Q49y8EV+EpHkFys2oOcjLWG0MeRhQ==", "id"=>"1"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:20:58 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-30 17:21:00 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 38ms (Views: 35.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-30 17:21:06 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qYpCe+iSrYHkaXokvKEf4nuMTiOl+rmNqDuh/Xz71/Sl2hGQ/n0R7goDT/z3fyeZO+i2Wv2mjN7MdTwVwoV/Jg==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 199ms (ActiveRecord: 0.4ms)
+
+
+  
+NameError (undefined local variable or method `new_sessions_path' for #<SessionsController:0x007fe6f114a340>
+Did you mean?  new_session_path
+               new_session_url
+               new_user_path
+               sessions_path):
+  
+app/controllers/sessions_controller.rb:13:in `create'
+Started POST "/sessions" for 127.0.0.1 at 2018-01-30 17:21:42 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qYpCe+iSrYHkaXokvKEf4nuMTiOl+rmNqDuh/Xz71/Sl2hGQ/n0R7goDT/z3fyeZO+i2Wv2mjN7MdTwVwoV/Jg==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 133ms (Views: 31.3ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-30 17:22:08 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qwqO4y9f6t5nmZj7lw3DBqc3MlJ1+YADXjMXMt1T4tOh2mO0B0UGbAmXP1XffqUBlJxNVVtn8SrF4zivvYgX2w==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 100ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:22:08 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.3ms)
+  Rendered users/show.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for order do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314878269040'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314927667160'
+Started GET "/sessions" for 127.0.0.1 at 2018-01-30 17:28:23 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/sessions"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:28:32 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 46.9ms | ActiveRecord: 6.0ms)
+
+
+Started DELETE "/sessions/1" for 127.0.0.1 at 2018-01-30 17:28:37 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5uPDlz2VtuZzS8bfvmvq+3Q7f7XFD/Y8rXOrduOmmfzsMy7AFY9aVB1FYXH2GIz8R5AAsuuRhxU2o4Trg31s9A==", "id"=>"1"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:28:37 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-30 17:28:39 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 36ms (Views: 32.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-30 17:28:47 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo21jMsPSVlGH4ddN+VOV0hZUBFikoUqUpUepzmxd0B23eZn3eD1Nqh1soV8O3YsCD2oaDrOsHk224NPh8/fkg==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 74ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:28:47 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.5ms)
+  Rendered users/show.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for order do |f| %>
+    4:   <div>
+    5:     <%= f.label :date %>
+    6:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314945362960'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314934749560'
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:34:02 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 46.5ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-30 17:34:05 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 60ms (Views: 51.7ms | ActiveRecord: 5.8ms)
+
+
+Started DELETE "/sessions/1" for 127.0.0.1 at 2018-01-30 17:34:08 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wjNQkgVtKo8acja3uT+T3C2cQi7HxA7mZaS2XTTCb47I473FLXfGPXR8kRnxTPXbHjc9Kelaf8/+dJnAVBmahg==", "id"=>"1"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:34:08 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-30 17:34:09 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 29ms (Views: 26.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-30 17:34:17 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Uq9mPiOSJnPIu9IK/0HI49xC648yvv+4WOjnZFsF669e/zXVNX2aHCbR59K0n/CYnCYT9mriyus8pnqM5XtDfQ==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 100ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:34:17 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (3.1ms)
+  Rendered users/show.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([@user, @order]) do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314944377020'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314892941620'
+Started PUT "/__web_console/repl_sessions/e8ffab60bc15ea68e6ea8fdaf83b9785" for 127.0.0.1 at 2018-01-30 17:34:26 +0400
+Started PUT "/__web_console/repl_sessions/e8ffab60bc15ea68e6ea8fdaf83b9785" for 127.0.0.1 at 2018-01-30 17:34:26 +0400
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:35:49 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/sessions/1" for 127.0.0.1 at 2018-01-30 17:35:52 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Ex7uMTiSOGIY8ace90dovsxae+L3t0VHL6FdUSO2Y9gZzgNmEIjU0Hb/ALC/NA65//EE5dkpNG60cXLMQ22W0A==", "id"=>"1"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-30 17:35:52 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-30 17:35:53 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 40ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-30 17:35:59 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QKGqi6nFQg8j50UFbQ/4OxLlnZziW6giBcNLsHhosglM8flgvyr+YM2NcN0m0cBAUoFl5boHnXFhjdZYxhYa2w==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 73ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:35:59 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.6ms)
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([@user, @order]) do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314850599760'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314850717340'
+Started PUT "/__web_console/repl_sessions/bb203d663c0c151a99f1f9f8366694cc" for 127.0.0.1 at 2018-01-30 17:36:05 +0400
+Started PUT "/__web_console/repl_sessions/bb203d663c0c151a99f1f9f8366694cc" for 127.0.0.1 at 2018-01-30 17:36:05 +0400
+Started PUT "/__web_console/repl_sessions/bb203d663c0c151a99f1f9f8366694cc" for 127.0.0.1 at 2018-01-30 17:36:35 +0400
+Started PUT "/__web_console/repl_sessions/bb203d663c0c151a99f1f9f8366694cc" for 127.0.0.1 at 2018-01-30 17:36:43 +0400
+Started PUT "/__web_console/repl_sessions/bb203d663c0c151a99f1f9f8366694cc" for 127.0.0.1 at 2018-01-30 17:40:35 +0400
+Started PUT "/__web_console/repl_sessions/bb203d663c0c151a99f1f9f8366694cc" for 127.0.0.1 at 2018-01-30 17:41:19 +0400
+Started PUT "/__web_console/repl_sessions/bb203d663c0c151a99f1f9f8366694cc" for 127.0.0.1 at 2018-01-30 17:41:21 +0400
+Started PUT "/__web_console/repl_sessions/bb203d663c0c151a99f1f9f8366694cc" for 127.0.0.1 at 2018-01-30 17:41:21 +0400
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:41:22 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (3.3ms)
+  Rendered users/show.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for @order do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314929250520'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314930105320'
+Started PUT "/__web_console/repl_sessions/e37ced254450bff1355bc7fb4a72368b" for 127.0.0.1 at 2018-01-30 17:41:29 +0400
+Started PUT "/__web_console/repl_sessions/e37ced254450bff1355bc7fb4a72368b" for 127.0.0.1 at 2018-01-30 17:41:30 +0400
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:44:55 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.4ms)
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for @order do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314891553320'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314890780440'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:46:36 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.2ms)
+  Rendered users/show.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([@user, @order]) do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314858750280'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314858790300'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:48:11 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.8ms)
+  Rendered users/show.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"orders", :id=>"1"}, missing required keys: [:user_id]):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for @order, url: user_orders_path  do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314879405300'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314932025240'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:49:31 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.6ms)
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"orders", :id=>"1"}, missing required keys: [:user_id]):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for @order, url: user_orders_path  do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314862936160'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314863024960'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:50:11 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.6ms)
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"orders", :id=>"1"}, missing required keys: [:user_id]):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for @order, url: user_orders_path  do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314934409160'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314934570980'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:51:31 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.4ms)
+  Rendered users/show.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"orders", :id=>"1"}, missing required keys: [:user_id]):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for @order, url: user_orders_path  do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314906129280'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314931504500'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:52:04 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.9ms)
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"orders", :id=>"1"}, missing required keys: [:user_id]):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for @order, url: user_orders_path  do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314932416620'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314934435920'
+Started PUT "/__web_console/repl_sessions/f82e56cebe827d698a73168845b52b48" for 127.0.0.1 at 2018-01-30 17:52:15 +0400
+Started PUT "/__web_console/repl_sessions/f82e56cebe827d698a73168845b52b48" for 127.0.0.1 at 2018-01-30 17:52:16 +0400
+Started PUT "/__web_console/repl_sessions/f82e56cebe827d698a73168845b52b48" for 127.0.0.1 at 2018-01-30 17:52:17 +0400
+Started PUT "/__web_console/repl_sessions/f82e56cebe827d698a73168845b52b48" for 127.0.0.1 at 2018-01-30 17:52:21 +0400
+Started PUT "/__web_console/repl_sessions/f82e56cebe827d698a73168845b52b48" for 127.0.0.1 at 2018-01-30 17:52:21 +0400
+Started PUT "/__web_console/repl_sessions/f82e56cebe827d698a73168845b52b48" for 127.0.0.1 at 2018-01-30 17:52:24 +0400
+Started PUT "/__web_console/repl_sessions/f82e56cebe827d698a73168845b52b48" for 127.0.0.1 at 2018-01-30 17:52:25 +0400
+Started PUT "/__web_console/repl_sessions/f82e56cebe827d698a73168845b52b48" for 127.0.0.1 at 2018-01-30 17:52:26 +0400
+Started PUT "/__web_console/repl_sessions/f82e56cebe827d698a73168845b52b48" for 127.0.0.1 at 2018-01-30 17:52:30 +0400
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" INNER JOIN "orders_users" ON "orders"."id" = "orders_users"."order_id" WHERE "orders_users"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:53:04 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (3.3ms)
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"orders", :id=>"1"}, missing required keys: [:user_id]):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for @order, url: user_orders_path  do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314864068500'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314927096740'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 17:53:39 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.5ms)
+  Rendered users/show.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"orders", :id=>"1"}, missing required keys: [:user_id]):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for @order, url: user_orders_path  do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314927602640'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314929710220'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 18:01:45 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (3.0ms)
+  Rendered users/show.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"orders", :id=>"1"}, missing required keys: [:user_id]):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for [:user, @order], url: user_orders_path  do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314932615740'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314930304360'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 18:02:08 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (3.0ms)
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for [:user, @order] do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314847265060'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314856712840'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 18:02:59 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.7ms)
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"orders", :id=>"1"}, missing required keys: [:user_id]):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for @order, url: user_orders_path  do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314944041220'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314944490940'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 18:27:57 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (0.9ms)
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/orders/_order_form.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+... form_for ([@user, @order]) url: user_orders_path(user_id:@u...
+...                               ^):
+  
+app/views/orders/_order_form.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314859670040'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 18:30:30 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (3.0ms)
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([@user, @order]), url: user_orders_path(user_id: @user.id, id: @order.id)  do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314880121000'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314944047920'
+Started PUT "/__web_console/repl_sessions/9d17ab8530f578f4b08e03dbfd87760d" for 127.0.0.1 at 2018-01-30 18:31:50 +0400
+Started PUT "/__web_console/repl_sessions/9d17ab8530f578f4b08e03dbfd87760d" for 127.0.0.1 at 2018-01-30 18:31:50 +0400
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 18:32:41 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (3.3ms)
+  Rendered users/show.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([@user, @order]), url: user_orders_path(user_id: @user.id, id: @order.id)  do |f| %>
+    4: 
+    5:   <div>
+    6:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314862217120'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314862305100'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 18:37:33 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (3.2ms)
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([@user, @order]), url: user_orders_path(user_id: @user.id, id: @order.id)  do |f| %>
+    4: 
+    5:   <% @order = Order.new %>
+    6:   <div>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314945291500'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314932941640'
+Started PUT "/__web_console/repl_sessions/ee9226c60c0449a674579fc532909c03" for 127.0.0.1 at 2018-01-30 18:37:37 +0400
+Started PUT "/__web_console/repl_sessions/ee9226c60c0449a674579fc532909c03" for 127.0.0.1 at 2018-01-30 18:37:38 +0400
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 18:38:02 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (3.1ms)
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([@user, @order]), url: user_orders_path(user_id: @user.id, id: @order.id)  do |f| %>
+    4: <% @order = Order.new %>
+    5: 
+    6:   <div>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314944227180'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314932494140'
+Started PUT "/__web_console/repl_sessions/61066436daf0cfae373817468c7f0064" for 127.0.0.1 at 2018-01-30 18:38:07 +0400
+Started PUT "/__web_console/repl_sessions/61066436daf0cfae373817468c7f0064" for 127.0.0.1 at 2018-01-30 18:38:07 +0400
