@@ -16,9 +16,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @order = Order.new
     ensure_logged_in
     @user = current_user
-
   end
 
 
@@ -31,6 +31,6 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :address, :photo, :driver_admin_id_id, :role, :password, :password_confirmation)
+      params.require(:user).permit %i(name email address photo driver_admin_id role password password_confirmation)
     end
 end

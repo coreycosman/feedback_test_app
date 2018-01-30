@@ -1,0 +1,13 @@
+<h1> Order Form <h1>
+
+<% @order = Order.new %>
+<%= form_for [@user, @order] do |f| %>
+
+  <div>
+    <%= f.label :pickup_start %>
+    <%= f.datetime_local_field :pickup_start %>
+  </div>
+
+    <%= f.submit data: {confirm: "Your Order is Submitted"} %>
+  </div>
+<% end %>
