@@ -1,7 +1,7 @@
 <h1> Order Form <h1>
 
-<%= form_for ([@user, @order]), url: user_orders_path(user_id: @user.id, id: @order.id)  do |f| %>
-<% @order = Order.new %>
+  <% @order = Order.new %>
+<%= form_for ([user, order]), url: user_orders_path(user_id: @user.id, id: @order.id)  do |f| %>
 
   <div>
     <%= f.label :pickup_start %>

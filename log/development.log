@@ -3289,3 +3289,72 @@ app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_e
 app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314932494140'
 Started PUT "/__web_console/repl_sessions/61066436daf0cfae373817468c7f0064" for 127.0.0.1 at 2018-01-30 18:38:07 +0400
 Started PUT "/__web_console/repl_sessions/61066436daf0cfae373817468c7f0064" for 127.0.0.1 at 2018-01-30 18:38:07 +0400
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 18:56:15 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (243.5ms)
+  Rendered users/show.html.erb within layouts/application (245.9ms)
+Completed 500 Internal Server Error in 254ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007fe6ec6ea8e0>:0x007fe6e710e868>
+Did you mean?  @user):
+    1: <h1> Order Form <h1>
+    2: 
+    3: <%= form_for ([user, order]), url: user_orders_path(user_id: @user.id, id: @order.id)  do |f| %>
+    4: <% @order = Order.new %>
+    5: 
+    6:   <div>
+  
+app/views/orders/_order_form.html.erb:3:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314846072800'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314847971060'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 18:56:38 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (307.7ms)
+  Rendered users/show.html.erb within layouts/application (310.1ms)
+Completed 500 Internal Server Error in 317ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007fe6ec6ea8e0>:0x007fe6e87cd3b0>
+Did you mean?  @user):
+    1: <h1> Order Form <h1>
+    2: 
+    3:   <% @order = Order.new %>
+    4: <%= form_for ([user, order]), url: user_orders_path(user_id: @user.id, id: @order.id)  do |f| %>
+    5: 
+    6:   <div>
+    7:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:4:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314859558780'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314859853140'
+Started PUT "/__web_console/repl_sessions/bd40d2f6952a8473031897423a245b4c" for 127.0.0.1 at 2018-01-30 18:56:44 +0400
+Started PUT "/__web_console/repl_sessions/bd40d2f6952a8473031897423a245b4c" for 127.0.0.1 at 2018-01-30 18:56:44 +0400
+Started GET "/users/1" for 127.0.0.1 at 2018-01-30 18:57:11 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.6ms)
+  Rendered users/show.html.erb within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Missing block):
+    1: <h1> Order Form <h1>
+    2: 
+    3:   <% @order = Order.new %>
+    4: <%= form_for ([user, order]), url: user_orders_path(user_id: @user.id, id: @order.id)  do |f| %>
+    5: 
+    6:   <div>
+    7:     <%= f.label :pickup_start %>
+  
+app/views/orders/_order_form.html.erb:4:in `_app_views_orders__order_form_html_erb__2598723424585986726_70314892257840'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__4282661088175520336_70314892705060'
