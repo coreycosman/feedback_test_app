@@ -3855,3 +3855,568 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 34ms (Views: 30.3ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-01-31 14:04:54 +0400
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 279ms (Views: 270.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-31 18:12:55 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 41ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-31 18:13:09 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-31 18:13:17 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9Y6KxA85n7IVfsRuIdPQdP3Ea52JcoWctV7Zdw8fgUOX2tkliOIJqLj9j1/LsxuCOyF3E5ToSYvSgaEKvn1jkQ==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 169ms (Views: 38.4ms | ActiveRecord: 13.5ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-31 18:13:29 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PLN6LR7pVRexgOICVBbbYCkzTbNonfnOJvzl3zJkTmle5ynMmTLDDRwDqTO+dhCW79ZRPXUHNdlBI52igwasuw==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 92ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 18:13:29 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (20.1ms)
+  Rendered users/show.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 80ms (Views: 45.8ms | ActiveRecord: 11.3ms)
+
+
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-01-31 18:13:57 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"33e28zXjTE4BSGU1XKbl4efpXqqKDcxwYcpsykSpM3S9I+USsjjaVKzLLgS2xi4XIQxCJJeXAGcGFRS39cvRpg==", "order"=>{"pickup_start"=>"2018-01-31T13:59"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/controllers/orders_controller.rb:6:in `create'
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-01-31 18:14:20 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"33e28zXjTE4BSGU1XKbl4efpXqqKDcxwYcpsykSpM3S9I+USsjjaVKzLLgS2xi4XIQxCJJeXAGcGFRS39cvRpg==", "order"=>{"pickup_start"=>"2018-01-31T13:59"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/controllers/orders_controller.rb:6:in `create'
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-01-31 18:15:44 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"33e28zXjTE4BSGU1XKbl4efpXqqKDcxwYcpsykSpM3S9I+USsjjaVKzLLgS2xi4XIQxCJJeXAGcGFRS39cvRpg==", "order"=>{"pickup_start"=>"2018-01-31T13:59"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/controllers/orders_controller.rb:6:in `create'
+Started PUT "/__web_console/repl_sessions/c77dc701b0cc7456002f7422e6e5bca8" for 127.0.0.1 at 2018-01-31 18:15:50 +0400
+Started PUT "/__web_console/repl_sessions/c77dc701b0cc7456002f7422e6e5bca8" for 127.0.0.1 at 2018-01-31 18:15:51 +0400
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-01-31 18:16:14 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"33e28zXjTE4BSGU1XKbl4efpXqqKDcxwYcpsykSpM3S9I+USsjjaVKzLLgS2xi4XIQxCJJeXAGcGFRS39cvRpg==", "order"=>{"pickup_start"=>"2018-01-31T13:59"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 34ms (ActiveRecord: 6.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/controllers/orders_controller.rb:6:in `create'
+Started PUT "/__web_console/repl_sessions/069e169d19b9043a2c63eb2d9e62c251" for 127.0.0.1 at 2018-01-31 18:16:20 +0400
+Started PUT "/__web_console/repl_sessions/069e169d19b9043a2c63eb2d9e62c251" for 127.0.0.1 at 2018-01-31 18:16:20 +0400
+Started PUT "/__web_console/repl_sessions/069e169d19b9043a2c63eb2d9e62c251" for 127.0.0.1 at 2018-01-31 18:16:23 +0400
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-01-31 18:16:48 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"33e28zXjTE4BSGU1XKbl4efpXqqKDcxwYcpsykSpM3S9I+USsjjaVKzLLgS2xi4XIQxCJJeXAGcGFRS39cvRpg==", "order"=>{"pickup_start"=>"2018-01-31T13:59"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (3.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.2ms)[0m  [1m[32mINSERT INTO "orders" ("pickup_start", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pickup_start", "2018-01-31 13:59:00"], ["created_at", "2018-01-31 14:16:49.062011"], ["updated_at", "2018-01-31 14:16:49.062011"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["order_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 17.2ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users", :user_id=>"1"}, missing required keys: [:id]):
+  
+app/controllers/orders_controller.rb:11:in `create'
+Started PUT "/__web_console/repl_sessions/9d5090bc0a518e1a3bdb6096979b6e22" for 127.0.0.1 at 2018-01-31 18:17:02 +0400
+Started PUT "/__web_console/repl_sessions/9d5090bc0a518e1a3bdb6096979b6e22" for 127.0.0.1 at 2018-01-31 18:17:02 +0400
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-01-31 18:17:16 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"33e28zXjTE4BSGU1XKbl4efpXqqKDcxwYcpsykSpM3S9I+USsjjaVKzLLgS2xi4XIQxCJJeXAGcGFRS39cvRpg==", "order"=>{"pickup_start"=>"2018-01-31T13:59"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("pickup_start", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pickup_start", "2018-01-31 13:59:00"], ["created_at", "2018-01-31 14:17:16.370990"], ["updated_at", "2018-01-31 14:17:16.370990"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["order_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 6.7ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users", :user_id=>"1"}, missing required keys: [:id]):
+  
+app/controllers/orders_controller.rb:11:in `create'
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-01-31 18:18:43 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"33e28zXjTE4BSGU1XKbl4efpXqqKDcxwYcpsykSpM3S9I+USsjjaVKzLLgS2xi4XIQxCJJeXAGcGFRS39cvRpg==", "order"=>{"pickup_start"=>"2018-01-31T13:59"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("pickup_start", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pickup_start", "2018-01-31 13:59:00"], ["created_at", "2018-01-31 14:18:43.956455"], ["updated_at", "2018-01-31 14:18:43.956455"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["order_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 5.7ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users", :user_id=>"1"}, missing required keys: [:id]):
+  
+app/controllers/orders_controller.rb:11:in `create'
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-01-31 18:19:02 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"33e28zXjTE4BSGU1XKbl4efpXqqKDcxwYcpsykSpM3S9I+USsjjaVKzLLgS2xi4XIQxCJJeXAGcGFRS39cvRpg==", "order"=>{"pickup_start"=>"2018-01-31T13:59"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("pickup_start", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pickup_start", "2018-01-31 13:59:00"], ["created_at", "2018-01-31 14:19:02.788880"], ["updated_at", "2018-01-31 14:19:02.788880"]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["order_id", 4]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 6.3ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users", :user_id=>"1"}, missing required keys: [:id]):
+  
+app/controllers/orders_controller.rb:11:in `create'
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-01-31 18:19:12 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"33e28zXjTE4BSGU1XKbl4efpXqqKDcxwYcpsykSpM3S9I+USsjjaVKzLLgS2xi4XIQxCJJeXAGcGFRS39cvRpg==", "order"=>{"pickup_start"=>"2018-01-31T13:59"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("pickup_start", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pickup_start", "2018-01-31 13:59:00"], ["created_at", "2018-01-31 14:19:13.054550"], ["updated_at", "2018-01-31 14:19:13.054550"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["order_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 79ms (ActiveRecord: 23.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 18:19:13 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.7ms)
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 33ms (Views: 29.5ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.6ms)[0m  [1m[33mUPDATE "orders" SET "order_status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["order_status", "hello"], ["updated_at", "2018-01-31 14:31:54.946783"], ["id", 5]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = $1[0m  [["role", "meow"]]
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 21:50:35 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (1.9ms)
+  Rendered users/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 32ms (Views: 28.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 21:59:31 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 16.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/users_controller.rb:40:in `find_user'
+app/controllers/users_controller.rb:44:in `is_corporation?'
+app/controllers/users_controller.rb:21:in `show'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 21:59:32 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/users_controller.rb:40:in `find_user'
+app/controllers/users_controller.rb:44:in `is_corporation?'
+app/controllers/users_controller.rb:21:in `show'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:03:56 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/users_controller.rb:40:in `find_user'
+app/controllers/users_controller.rb:44:in `is_corporation?'
+app/controllers/users_controller.rb:21:in `show'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:04:13 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <%= render '/orders/order_form', user: @user, order: @order %>
+    3: <%= @order.each do |o| %>
+    4: <%= o %>
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb___87788011561603979_70359978956120'
+Started PUT "/__web_console/repl_sessions/a521addec7244e2626607c8bcd52b788" for 127.0.0.1 at 2018-01-31 22:04:29 +0400
+Started PUT "/__web_console/repl_sessions/a521addec7244e2626607c8bcd52b788" for 127.0.0.1 at 2018-01-31 22:04:29 +0400
+Started PUT "/__web_console/repl_sessions/a521addec7244e2626607c8bcd52b788" for 127.0.0.1 at 2018-01-31 22:04:55 +0400
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:04:55 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/users_controller.rb:20:in `show'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:05:07 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/users_controller.rb:20:in `show'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:05:25 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/users_controller.rb:20:in `show'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:05:34 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for 1:Fixnum):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <%= render '/orders/order_form', user: @user, order: @order %>
+    3: <%= @order.each do |o| %>
+    4: <%= o %>
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb___87788011561603979_70359994006120'
+Started PUT "/__web_console/repl_sessions/3b8ad43cf49c6d120f24bf6b309e84be" for 127.0.0.1 at 2018-01-31 22:05:38 +0400
+Started PUT "/__web_console/repl_sessions/3b8ad43cf49c6d120f24bf6b309e84be" for 127.0.0.1 at 2018-01-31 22:05:38 +0400
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:06:12 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.3ms)
+  Rendered users/show.html.erb within layouts/application (11.6ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Order:0x007ffbe1eaef18>):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <%= render '/orders/order_form', user: @user, order: @order %>
+    3: <%= @order.each do |o| %>
+    4: <%= o %>
+    5: <% end %>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb___87788011561603979_70359902179940'
+Started PUT "/__web_console/repl_sessions/5417332e36a23145ef533b3b24e66044" for 127.0.0.1 at 2018-01-31 22:06:46 +0400
+Started PUT "/__web_console/repl_sessions/5417332e36a23145ef533b3b24e66044" for 127.0.0.1 at 2018-01-31 22:06:47 +0400
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "orders_users" ON "orders"."id" = "orders_users"."order_id" WHERE "orders_users"."user_id" = $1[0m  [["user_id", 2]]
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:20:32 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.0ms)
+  Rendered users/show.html.erb within layouts/application (11.3ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Order:0x007ffbe80c9540>):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <%= render '/orders/order_form', user: @user, order: @order %>
+    3: <%= @order.each do |o| %>
+    4: <%= o %>
+    5: <% end %>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb___87788011561603979_70359900590820'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:20:37 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.9ms)
+  Rendered users/show.html.erb within layouts/application (12.6ms)
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 10.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Order:0x007ffbef038980>):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <%= render '/orders/order_form', user: @user, order: @order %>
+    3: <%= @order.each do |o| %>
+    4: <%= o %>
+    5: <% end %>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb___87788011561603979_70359999121540'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:20:40 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (1.9ms)
+  Rendered users/show.html.erb within layouts/application (11.3ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Order:0x007ffbecf34018>):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <%= render '/orders/order_form', user: @user, order: @order %>
+    3: <%= @order.each do |o| %>
+    4: <%= o %>
+    5: <% end %>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb___87788011561603979_70359994689740'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:21:05 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (26.6ms)
+  Rendered users/show.html.erb within layouts/application (35.8ms)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 10.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Order:0x007ffbeb211490>):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <%= render '/orders/order_form', user: @user, order: @order %>
+    3: <%= @order.each do |o| %>
+    4: <%= o %>
+    5: <% end %>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb___87788011561603979_70359973587460'
+Started GET "/" for 127.0.0.1 at 2018-01-31 22:21:19 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 27.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-31 22:21:21 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 36ms (Views: 33.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-31 22:21:27 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NVrnePu2cMitSPRwXDiiz6lnrZq393h8rBAxjJzice/okjOheowZP50Zuo+CsBdLHH/4fQftWJM09eVKETyJJg==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 71ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:21:27 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (1.9ms)
+  Rendered users/show.html.erb within layouts/application (10.5ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Order:0x007ffbe19b9850>):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <%= render '/orders/order_form', user: @user, order: @order %>
+    3: <%= @order.each do |o| %>
+    4: <%= o %>
+    5: <% end %>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb___87788011561603979_70359919615760'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:22:03 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (21.3ms)
+  Rendered users/show.html.erb within layouts/application (27.1ms)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <%= render '/orders/order_form', user: @user, order: @order %>
+    3: <%= @orders.each do |o| %>
+    4: <%= o %>
+    5: <% end %>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb___87788011561603979_70359988113980'
+Started PUT "/__web_console/repl_sessions/136d42cbf7c239fe37bb967685338994" for 127.0.0.1 at 2018-01-31 22:22:08 +0400
+Started PUT "/__web_console/repl_sessions/136d42cbf7c239fe37bb967685338994" for 127.0.0.1 at 2018-01-31 22:22:09 +0400
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:23:04 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (1.8ms)
+  Rendered users/show.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <%= render '/orders/order_form', user: @user, order: @order %>
+    3: <%= @orders.each do |o| %>
+    4: <%= o %>
+    5: <% end %>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb___87788011561603979_70359989588760'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:23:51 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.9ms)
+  Rendered users/show.html.erb within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 10.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <%= render '/orders/order_form', user: @user, order: @order %>
+    3: <%= @orders.each do |o| %>
+    4: <%= o %>
+    5: <% end %>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb___87788011561603979_70359909681040'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1[0m  [["email", "meow@meow.meow"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "meow@meow.meow"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "role" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["role", "driver"], ["updated_at", "2018-01-31 18:34:05.794237"], ["id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/1" for 127.0.0.1 at 2018-01-31 22:34:28 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (1.8ms)
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 34ms (Views: 28.7ms | ActiveRecord: 1.1ms)
+
+

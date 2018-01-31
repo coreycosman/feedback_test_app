@@ -17,8 +17,10 @@ class UsersController < ApplicationController
 
   def show
     @order = Order.new
-    ensure_logged_in
     @user = current_user
+    ensure_logged_in
+    check_role
+
   end
 
 
@@ -33,4 +35,19 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit %i(name email address photo driver_admin_id role password password_confirmation)
     end
+
+    # def find_user
+    #   @user = User.find_by(params[:id])
+    # end
+
+    def check_role
+
+      if current_user && @current_user.role == "corporation"
+        @orders = @current_user.orders
+
+      elsif current_user && @current_user.role == "driver"
+        @orders = Order.all.where(order_status: "open")
+      end
+    end
+
 end
