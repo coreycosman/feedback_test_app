@@ -5844,3 +5844,229 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 59ms (Views: 48.0ms | ActiveRecord: 8.1ms)
 
 
+Started GET "/users/1" for 127.0.0.1 at 2018-02-01 23:54:13 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/users/show.html.erb:44: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/users/show.html.erb:46: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/users/show.html.erb:44: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/users/show.html.erb:46: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/users/1" for 127.0.0.1 at 2018-02-01 23:54:32 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <% if @current_user.role == "corporation" %>
+    3:   <%= form_for [@user, @order] do |f| %>
+    4:     <div>
+    5:       <%= f.label :date %>
+    6:       <%= f.date_field :date %>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb__3759786715265570018_70178924186700'
+Started PUT "/__web_console/repl_sessions/57431fe5b57acadce4981c589cfabe90" for 127.0.0.1 at 2018-02-01 23:54:41 +0400
+Started PUT "/__web_console/repl_sessions/57431fe5b57acadce4981c589cfabe90" for 127.0.0.1 at 2018-02-01 23:54:45 +0400
+Started GET "/users/1" for 127.0.0.1 at 2018-02-01 23:55:13 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (15.9ms)
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "orders_users" ON "orders"."id" = "orders_users"."order_id" WHERE "orders_users"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 53ms (Views: 47.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-02 00:03:31 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Hello <%= "#{@user.name}" %> <h1>
+    2: <% if @current_user.role == "corporation" %>
+    3:   <%= form_for [@user, @order] do |f| %>
+    4:     <div>
+    5:       <%= f.label :date %>
+    6:       <%= f.date_field :date %>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb__3759786715265570018_70178923644080'
+Started GET "/users/1" for 127.0.0.1 at 2018-02-02 00:06:07 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "orders_users" ON "orders"."id" = "orders_users"."order_id" WHERE "orders_users"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 35ms (Views: 30.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-02 00:10:37 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.8ms)
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: 
+    4: <%= form_for [@user, @order] do |f| %>
+    5:   <div>
+    6:     <%= f.label :date %>
+    7:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:4:in `_app_views_orders__order_form_html_erb___2809601552756235048_70178878450000'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__3759786715265570018_70178878535940'
+Started GET "/users/1" for 127.0.0.1 at 2018-02-02 00:11:42 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.7ms)
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: 
+    4: <%= form_for [@user, @order] do |f| %>
+    5:   <div>
+    6:     <%= f.label :date %>
+    7:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:4:in `_app_views_orders__order_form_html_erb___2809601552756235048_70178924631780'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__3759786715265570018_70178924747880'
+Started GET "/users/1" for 127.0.0.1 at 2018-02-02 00:15:53 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.7ms)
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1> Order Form <h1>
+    2: 
+    3: 
+    4: <%= form_for [@user, @order] do |f| %>
+    5:   <div>
+    6:     <%= f.label :date %>
+    7:     <%= f.date_field :date %>
+  
+app/views/orders/_order_form.html.erb:4:in `_app_views_orders__order_form_html_erb___2809601552756235048_70178841689120'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__3759786715265570018_70178841841940'
+Started PUT "/__web_console/repl_sessions/d6fa43b42a32507e418aeb59adc425a1" for 127.0.0.1 at 2018-02-02 00:15:56 +0400
+Started PUT "/__web_console/repl_sessions/d6fa43b42a32507e418aeb59adc425a1" for 127.0.0.1 at 2018-02-02 00:15:57 +0400
+Started GET "/" for 127.0.0.1 at 2018-02-02 00:16:02 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 42.7ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-02-02 00:16:04 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 37ms (Views: 33.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-02-02 00:16:09 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ECqzUr0zsgAjtkFyYt/flza12f2otFI2G/7DOXNcpP8g1ZGzZaet3hi3gWRfqMcYYtu+2N6YkVlzrPNkhMi32w==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 77ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-02 00:16:09 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (4.5ms)
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "orders_users" ON "orders"."id" = "orders_users"."order_id" WHERE "orders_users"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 72ms (Views: 40.1ms | ActiveRecord: 9.0ms)
+
+
+Started DELETE "/sessions/1" for 127.0.0.1 at 2018-02-02 00:17:16 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8NXwISk/EU6XbNtK9Yoq6rzS0FR58MQR+nC5Zg3GoJgE0P68dW0SA3L+/MlCVo/fZO/kyoRuwXPydZUnE1j0DQ==", "id"=>"1"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-02 00:17:16 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 40ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-02-02 00:17:19 +0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_user_registration_form.html.erb (6.1ms)
+  Rendered users/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 41ms (Views: 37.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-02-02 00:17:23 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-02-02 00:17:31 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QetVN3vzPd06aiVuVaI2KgH4yC2RdnMfhrzMZ+pjv4txFHfWo2ciAwFr5Xho1S6lVZavCOdasHDu7vw6Hfesrw==", "email"=>"meow@meow.com", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 81ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-02 00:17:31 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 31ms (Views: 26.4ms | ActiveRecord: 0.8ms)
+
+

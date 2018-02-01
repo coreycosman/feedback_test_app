@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @order = Order.new
     @user = current_user
     ensure_logged_in
     check_role
