@@ -2,11 +2,35 @@
 
 <% @order = Order.new %>
 <%= form_for [@user, @order] do |f| %>
-
+  <div>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </div>
   <div>
     <%= f.label :pickup_start %>
     <%= f.datetime_local_field :pickup_start %>
   </div>
+  <div>
+    <%= f.label :pickup_end %>
+    <%= f.datetime_local_field :pickup_end %>
+  </div>
+  <div>
+    <%= f.label :food_description %>
+    <%= f.text_field :food_description %>
+  </div>
+  <div>
+    <%= f.label :dropoff_latest %>
+    <%= f.datetime_local_field :dropoff_latest %>
+  </div>
+  <div>
+    <%= f.label :driver_pickup_time %>
+    <%= f.datetime_local_field :driver_pickup_time %>
+  </div>
+  <div>
+    <%= f.label :driver_dropoff_time %>
+    <%= f.datetime_local_field :driver_dropoff_time %>
+  </div>
+  <div>
 
     <%= f.submit data: {confirm: "Your Order is Submitted"} %>
   </div>

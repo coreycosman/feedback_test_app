@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.order_update = "open"
+    @order.order_status = "open"
     @user = User.find_by(params[:id])
 
     if @order.save

@@ -4420,3 +4420,332 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 34ms (Views: 28.7ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-02-01 15:53:49 +0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 240ms (Views: 229.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-01 15:55:39 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 28ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-02-01 15:55:42 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 49ms (Views: 46.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-02-01 15:55:48 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Pgne1NPyQXLtYr82/AiDxvfwc3+R1es7Hz+rjWDC5R5EZO9838HL8CZVSEhOcFSv9tJA50qsTYF+xAT636Brlg==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 128ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-01 15:55:48 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 6.4ms)
+
+
+  
+SyntaxError (/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/users/show.html.erb:3: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...nt_user.role == "corporation" );@output_buffer.safe_append='
+...                               ^
+/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/users/show.html.erb:8: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/users/show.html.erb:10: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/users/show.html.erb:3: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+app/views/users/show.html.erb:8: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/users/show.html.erb:10: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/users/1" for 127.0.0.1 at 2018-02-01 15:57:09 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/users/show.html.erb:3: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...nt_user.role == "corporation" );@output_buffer.safe_append='
+...                               ^
+/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/users/show.html.erb:8: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/users/show.html.erb:10: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/users/show.html.erb:3: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+app/views/users/show.html.erb:8: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/users/show.html.erb:10: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/users/1" for 127.0.0.1 at 2018-02-01 15:57:57 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/users/show.html.erb:3: syntax error, unexpected ||
+...rent_user.role == "driver" &&|| @current_user.role == "corpo...
+...                               ^):
+  
+app/views/users/show.html.erb:3: syntax error, unexpected ||
+Started GET "/users/1" for 127.0.0.1 at 2018-02-01 16:02:03 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/users/show.html.erb:8: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/coreycosman/Desktop/feedback_test_app/feedback_test_app/app/views/users/show.html.erb:10: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/users/show.html.erb:8: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/users/show.html.erb:10: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/users/1" for 127.0.0.1 at 2018-02-01 16:02:40 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (35.4ms)
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 67ms (Views: 61.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-01 16:03:02 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (4.2ms)
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 36ms (Views: 31.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-02-01 16:06:15 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AGQ5K0Hz3+3f1bVkIbgrBRF+B94Pr+w12pPNk6Ze+dQKLgjllS38urK7TxgOIpCQl2zVbjojwuw+xbeFu7IJeg==", "order"=>{"date"=>"2018-02-01", "pickup_start"=>"2018-02-01T21:00", "pickup_end"=>"2018-02-01T22:00", "food_description"=>"adfijhaidfh", "dropoff_latest"=>"2018-02-01T23:30", "driver_pickup_time"=>"2018-02-01T21:30", "driver_dropoff_time"=>"2018-02-01T22:30"}, "commit"=>"Create Order", "user_id"=>"1"}
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `order_update=' for #<Order:0x007fe5cfa46f20>
+Did you mean?  order_update):
+  
+app/controllers/orders_controller.rb:5:in `create'
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-02-01 16:07:14 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AGQ5K0Hz3+3f1bVkIbgrBRF+B94Pr+w12pPNk6Ze+dQKLgjllS38urK7TxgOIpCQl2zVbjojwuw+xbeFu7IJeg==", "order"=>{"date"=>"2018-02-01", "pickup_start"=>"2018-02-01T21:00", "pickup_end"=>"2018-02-01T22:00", "food_description"=>"adfijhaidfh", "dropoff_latest"=>"2018-02-01T23:30", "driver_pickup_time"=>"2018-02-01T21:30", "driver_dropoff_time"=>"2018-02-01T22:30"}, "commit"=>"Create Order", "user_id"=>"1"}
+Completed 500 Internal Server Error in 141ms (ActiveRecord: 6.2ms)
+
+
+  
+NameError (undefined local variable or method `order_update' for #<OrdersController:0x007fe5ce43d288>
+Did you mean?  order_params):
+  
+app/controllers/orders_controller.rb:5:in `create'
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-02-01 16:07:51 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AGQ5K0Hz3+3f1bVkIbgrBRF+B94Pr+w12pPNk6Ze+dQKLgjllS38urK7TxgOIpCQl2zVbjojwuw+xbeFu7IJeg==", "order"=>{"date"=>"2018-02-01", "pickup_start"=>"2018-02-01T21:00", "pickup_end"=>"2018-02-01T22:00", "food_description"=>"adfijhaidfh", "dropoff_latest"=>"2018-02-01T23:30", "driver_pickup_time"=>"2018-02-01T21:30", "driver_dropoff_time"=>"2018-02-01T22:30"}, "commit"=>"Create Order", "user_id"=>"1"}
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 5.8ms)
+
+
+  
+NameError (undefined local variable or method `order' for #<Order:0x007fe5c753e0a8>):
+  
+app/models/order.rb:12:in `order_update'
+app/controllers/orders_controller.rb:5:in `create'
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-02-01 16:09:19 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AGQ5K0Hz3+3f1bVkIbgrBRF+B94Pr+w12pPNk6Ze+dQKLgjllS38urK7TxgOIpCQl2zVbjojwuw+xbeFu7IJeg==", "order"=>{"date"=>"2018-02-01", "pickup_start"=>"2018-02-01T21:00", "pickup_end"=>"2018-02-01T22:00", "food_description"=>"adfijhaidfh", "dropoff_latest"=>"2018-02-01T23:30", "driver_pickup_time"=>"2018-02-01T21:30", "driver_dropoff_time"=>"2018-02-01T22:30"}, "commit"=>"Create Order", "user_id"=>"1"}
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 7.1ms)
+
+
+  
+NoMethodError (undefined method `order_status' for nil:NilClass):
+  
+app/models/order.rb:12:in `order_update'
+app/controllers/orders_controller.rb:5:in `create'
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-02-01 16:09:57 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AGQ5K0Hz3+3f1bVkIbgrBRF+B94Pr+w12pPNk6Ze+dQKLgjllS38urK7TxgOIpCQl2zVbjojwuw+xbeFu7IJeg==", "order"=>{"date"=>"2018-02-01", "pickup_start"=>"2018-02-01T21:00", "pickup_end"=>"2018-02-01T22:00", "food_description"=>"adfijhaidfh", "dropoff_latest"=>"2018-02-01T23:30", "driver_pickup_time"=>"2018-02-01T21:30", "driver_dropoff_time"=>"2018-02-01T22:30"}, "commit"=>"Create Order", "user_id"=>"1"}
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 5.9ms)
+
+
+  
+NameError (undefined local variable or method `order' for #<Order:0x007fe5d0d193a0>):
+  
+app/models/order.rb:12:in `order_update'
+app/controllers/orders_controller.rb:5:in `create'
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-02-01 16:10:58 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AGQ5K0Hz3+3f1bVkIbgrBRF+B94Pr+w12pPNk6Ze+dQKLgjllS38urK7TxgOIpCQl2zVbjojwuw+xbeFu7IJeg==", "order"=>{"date"=>"2018-02-01", "pickup_start"=>"2018-02-01T21:00", "pickup_end"=>"2018-02-01T22:00", "food_description"=>"adfijhaidfh", "dropoff_latest"=>"2018-02-01T23:30", "driver_pickup_time"=>"2018-02-01T21:30", "driver_dropoff_time"=>"2018-02-01T22:30"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[35m (3.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.5ms)[0m  [1m[32mINSERT INTO "orders" ("order_status", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["order_status", "driver"], ["created_at", "2018-02-01 12:10:58.934167"], ["updated_at", "2018-02-01 12:10:58.934167"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("date", "pickup_start", "pickup_end", "food_description", "dropoff_latest", "driver_pickup_time", "driver_dropoff_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["date", "2018-02-01"], ["pickup_start", "2018-02-01 21:00:00"], ["pickup_end", "2018-02-01 22:00:00"], ["food_description", "adfijhaidfh"], ["dropoff_latest", "2018-02-01 23:30:00"], ["driver_pickup_time", "2018-02-01 21:30:00"], ["driver_dropoff_time", "2018-02-01 22:30:00"], ["created_at", "2018-02-01 12:10:58.965503"], ["updated_at", "2018-02-01 12:10:58.965503"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["order_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 99ms (ActiveRecord: 30.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-01 16:10:59 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (4.2ms)
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 35ms (Views: 30.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-01 16:12:30 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (3.9ms)
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 34ms (Views: 30.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-01 16:16:10 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (17.5ms)
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 77ms (Views: 41.3ms | ActiveRecord: 11.3ms)
+
+
+Started DELETE "/sessions/1" for 127.0.0.1 at 2018-02-01 16:16:13 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"h6zvGT8vBN3XmGztN17FEcumFbxYHWsEXzcZyrY4CCON5t7X6/Enirr2lpEYxH6ETbTHDG2RRd27YWPcq9T4jQ==", "id"=>"1"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-01 16:16:13 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-02-01 16:16:15 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 35ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-02-01 16:16:24 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a1l1ekBuue3sw8I5f4vjEKxQ5q5GFczRxuf7jW/1lQkRNETSTF0zbyf0NUfN8zR5rXLVNp1samunHFT60JcbgQ==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 102ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-01 16:16:25 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (21.4ms)
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 63ms (Views: 47.5ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-02-01 16:17:03 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"szywAjS/Ng2VlZ2LVuM5nMt6/hATYZJAz/nbhf3pXPK5doHM4GEVWvj7Z/d5eYIJTWgsoCbtvJkrr6GT4AWsXA==", "order"=>{"date"=>"2018-01-01", "pickup_start"=>"2018-01-01T01:00", "pickup_end"=>"2018-01-02T01:00", "food_description"=>"efvaf", "dropoff_latest"=>"2018-01-01T01:00", "driver_pickup_time"=>"2018-01-01T01:00", "driver_dropoff_time"=>"2018-01-01T01:00"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "orders" ("order_status", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["order_status", "driver"], ["created_at", "2018-02-01 12:17:03.417974"], ["updated_at", "2018-02-01 12:17:03.417974"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("date", "pickup_start", "pickup_end", "food_description", "dropoff_latest", "driver_pickup_time", "driver_dropoff_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["date", "2018-01-01"], ["pickup_start", "2018-01-01 01:00:00"], ["pickup_end", "2018-01-02 01:00:00"], ["food_description", "efvaf"], ["dropoff_latest", "2018-01-01 01:00:00"], ["driver_pickup_time", "2018-01-01 01:00:00"], ["driver_dropoff_time", "2018-01-01 01:00:00"], ["created_at", "2018-02-01 12:17:03.423697"], ["updated_at", "2018-02-01 12:17:03.423697"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["order_id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 30ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-01 16:17:03 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (4.0ms)
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 37ms (Views: 32.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-01 16:19:37 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (18.1ms)
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 99ms (Views: 43.3ms | ActiveRecord: 13.7ms)
+
+
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-02-01 16:19:58 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rY2vlbYWR2K4nEeWlJzQAaeVaS6n4GdkHEj8QXH2yPenx55bYshkNdXyveq7BmuUIYe7npJsSb34HoZXbBo4WQ==", "order"=>{"date"=>"2018-01-01", "pickup_start"=>"2018-01-01T01:00", "pickup_end"=>"2018-01-01T01:00", "food_description"=>"erfghiq", "dropoff_latest"=>"2018-01-01T01:00", "driver_pickup_time"=>"2018-01-01T01:00", "driver_dropoff_time"=>"2018-01-01T01:00"}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("order_status", "date", "pickup_start", "pickup_end", "food_description", "dropoff_latest", "driver_pickup_time", "driver_dropoff_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["order_status", "open"], ["date", "2018-01-01"], ["pickup_start", "2018-01-01 01:00:00"], ["pickup_end", "2018-01-01 01:00:00"], ["food_description", "erfghiq"], ["dropoff_latest", "2018-01-01 01:00:00"], ["driver_pickup_time", "2018-01-01 01:00:00"], ["driver_dropoff_time", "2018-01-01 01:00:00"], ["created_at", "2018-02-01 12:19:58.782214"], ["updated_at", "2018-02-01 12:19:58.782214"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["order_id", 10]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 66ms (ActiveRecord: 17.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-01 16:19:58 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (4.5ms)
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 35ms (Views: 30.4ms | ActiveRecord: 0.7ms)
+
+
