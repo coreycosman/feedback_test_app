@@ -1,6 +1,7 @@
 <h1> Hello <%= "#{@user.name}" %> <h1>
-<%= render '/orders/order_form', user: @user, order: @order %>
-<%= if @current_user.role == "driver" || @current_user.role == "corporation" %>
+<%= render '/orders/order_form', user: @user, order: @order if @current_user.role == "corporation" %>
+<% if @current_user.role == "driver" || @current_user.role == "corporation" %>
 <%= @orders.each do |o| %>
 <%= o %>
+  <% end %>
 <% end %>

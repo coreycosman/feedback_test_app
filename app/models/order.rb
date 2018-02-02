@@ -9,13 +9,14 @@ class Order < ApplicationRecord
   end
 
   def order_update
-    if order.order_status == nil
+    order = Order.new
+    if order.order_status = nil
       order.update(order_status: "open")
-    elsif order.order_status == "open"
+    elsif order.order_status = "open"
       order.update(order_status: "driver")
-    elsif order.order_status == "driver"
+    elsif order.order_status = "driver"
       order.update(order_status: "pickedup")
-    elsif order.order_status == "pickup"
+    elsif order.order_status = "pickup"
       order.update(order_status: "complete")
     end
   end
