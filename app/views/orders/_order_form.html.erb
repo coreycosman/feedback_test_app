@@ -1,7 +1,7 @@
 <h1> Order Form <h1>
 
 
-<%= form_for [@user, @order] do |f| %>
+<%= form_for [user, order] do |f| %>
   <div>
     <%= f.label :date %>
     <%= f.date_field :date %>
