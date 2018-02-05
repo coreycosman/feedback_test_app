@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+
+
   def create
 
    if current_user.role == "corporation"
@@ -12,7 +14,7 @@ class OrdersController < ApplicationController
 
   def update
     if current_user.role == "charity"
-      @order = Order.find_by(params[:id])
+      @order = Order.find_by(params[:user_id])
       @order.order_status = "charity"
       find_user
       charity_order_submit?
@@ -53,7 +55,7 @@ class OrdersController < ApplicationController
     end
 
     def find_user
-      @user = User.find_by(params[:id])
+      @user = User.find(params[:id])
     end
 
 

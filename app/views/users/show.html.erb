@@ -3,6 +3,6 @@
 <% if @current_user.role == "charity" || @current_user.role == "corporation" %>
 <%= @orders.each do |o| %>
 <%= o %>
-<%= render '/orders/order_claim_form', user: @user, order: @order  if @current_user.role == "charity"%>
+<%= render '/orders/order_claim_form', user: @user, claim: o  if @current_user.role == "charity"%>
   <% end %>
 <% end %>

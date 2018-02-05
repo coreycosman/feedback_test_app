@@ -6342,3 +6342,679 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 279ms (Views: 210.2ms | ActiveRecord: 13.2ms)
 
 
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:02:01 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:02:01 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:02:09 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:02:15 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:02:23 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:02:35 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:02:35 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:02:40 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:02:43 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:02:48 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:02:55 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:03:00 +0400
+Started PUT "/__web_console/repl_sessions/a6652d4c14973fba256c04460169b6e0" for 127.0.0.1 at 2018-02-06 00:03:00 +0400
+Started GET "/users/2" for 127.0.0.1 at 2018-02-06 00:10:32 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (2.6ms)
+  Rendered users/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 80ms (Views: 32.7ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-06 00:10:34 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (3.2ms)
+  Rendered users/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 98ms (Views: 36.8ms | ActiveRecord: 11.6ms)
+
+
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:10:38 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:55:in `find_user'
+Started PUT "/__web_console/repl_sessions/f3308b3ad17e9c1649f66089e32d4ed7" for 127.0.0.1 at 2018-02-06 00:11:27 +0400
+Started PUT "/__web_console/repl_sessions/f3308b3ad17e9c1649f66089e32d4ed7" for 127.0.0.1 at 2018-02-06 00:11:27 +0400
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:12:17 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:55:in `find_user'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:12:40 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 7.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:12:53 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 8.1ms)
+
+
+  
+NoMethodError (undefined method `order_status=' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:13:24 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 7.4ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:14:41 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:27:29 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:27:55 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.3ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:28:07 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:29:44 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 6.7ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PUT "/__web_console/repl_sessions/1eaea0d96c568233eea2d4b9ca3c0d20" for 127.0.0.1 at 2018-02-06 00:29:48 +0400
+Started PUT "/__web_console/repl_sessions/1eaea0d96c568233eea2d4b9ca3c0d20" for 127.0.0.1 at 2018-02-06 00:29:49 +0400
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:30:34 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 8.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PUT "/__web_console/repl_sessions/a16a5c92ed98790ca883ffbcdd6ccf65" for 127.0.0.1 at 2018-02-06 00:30:39 +0400
+Started PUT "/__web_console/repl_sessions/a16a5c92ed98790ca883ffbcdd6ccf65" for 127.0.0.1 at 2018-02-06 00:30:39 +0400
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:32:19 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:32:44 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IcqJwALfoqZ8g6Ckl4AxnmVzXGk49V8MzUfQbbZGiJzZxkuFj/Xns2EB2yQZcQn7nNYe73E+fKHPhud7tIGng==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 7.8ms)
+
+
+  
+NoMethodError (undefined method `id' for :current_user:Symbol):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started GET "/users/2" for 127.0.0.1 at 2018-02-06 00:35:01 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (2.2ms)
+  Rendered users/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 74ms (Views: 27.7ms | ActiveRecord: 12.6ms)
+
+
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:35:04 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/dj3701vXt6BgmvhFjKrAR7J8RNx4f28dYx2rZGFhGIF1DWqwEUby5wAEGGYw5Nk52yzlTgq3hF3TUG7k0KrQ==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:35:24 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/dj3701vXt6BgmvhFjKrAR7J8RNx4f28dYx2rZGFhGIF1DWqwEUby5wAEGGYw5Nk52yzlTgq3hF3TUG7k0KrQ==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (3.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 16.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:58:in `find_user'
+app/controllers/orders_controller.rb:19:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:35:26 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/dj3701vXt6BgmvhFjKrAR7J8RNx4f28dYx2rZGFhGIF1DWqwEUby5wAEGGYw5Nk52yzlTgq3hF3TUG7k0KrQ==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.3ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:58:in `find_user'
+app/controllers/orders_controller.rb:19:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:35:28 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/dj3701vXt6BgmvhFjKrAR7J8RNx4f28dYx2rZGFhGIF1DWqwEUby5wAEGGYw5Nk52yzlTgq3hF3TUG7k0KrQ==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.6ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:58:in `find_user'
+app/controllers/orders_controller.rb:19:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:35:34 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/dj3701vXt6BgmvhFjKrAR7J8RNx4f28dYx2rZGFhGIF1DWqwEUby5wAEGGYw5Nk52yzlTgq3hF3TUG7k0KrQ==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (1) LIMIT $1):
+  
+app/controllers/orders_controller.rb:58:in `find_user'
+app/controllers/orders_controller.rb:19:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:35:52 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/dj3701vXt6BgmvhFjKrAR7J8RNx4f28dYx2rZGFhGIF1DWqwEUby5wAEGGYw5Nk52yzlTgq3hF3TUG7k0KrQ==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "orders" SET "order_status" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["order_status", "charity"], ["updated_at", "2018-02-05 20:35:52.173670"], ["id", 2]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (29.6ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["order_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 121ms (ActiveRecord: 52.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-06 00:35:52 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (2.1ms)
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 46ms (Views: 42.4ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:36:06 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2u+wcwQL3wp5BxusrN03t+fqOIlwABvLCVFOL+d9lOVFD4N6Ej92Hi1xEkKu5vNWcAytg2knN0W9Wkrzv3aIWQ==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["order_id", 2]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 15ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-06 00:36:06 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (1.7ms)
+  Rendered users/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:36:09 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tfCFFensUAQzYb/2Fb+nTnHaPvVU9SlsYtkE/DvxjPUqELYc/9j5EGcXthgXhGOv5jyr/03SBeLW0gAgY/qQSQ==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["order_id", 2]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 14ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-06 00:36:09 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (1.9ms)
+  Rendered users/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 38ms (Views: 33.8ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:36:10 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8gOKS86t8or6Ydd6WJhD7NOyhp0Kf9CD21kHiNhEprxt47lC2Jlbnq4X3pRao4cNRFQTlxNY/A1vUgNUgE+6AA==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["order_id", 2]]
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 13ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-06 00:36:10 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (1.8ms)
+  Rendered users/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 35ms (Views: 31.1ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/__web_console/repl_sessions/c4041725258b2f998a1700892162a0e1" for 127.0.0.1 at 2018-02-06 00:36:12 +0400
+Started PUT "/__web_console/repl_sessions/c4041725258b2f998a1700892162a0e1" for 127.0.0.1 at 2018-02-06 00:36:13 +0400
+Started GET "/users/1" for 127.0.0.1 at 2018-02-06 00:36:29 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (1.8ms)
+  Rendered users/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 33ms (Views: 29.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-06 00:36:40 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (2.5ms)
+  Rendered users/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 74ms (Views: 29.2ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-06 00:36:53 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (3.0ms)
+  Rendered users/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 85ms (Views: 32.0ms | ActiveRecord: 11.9ms)
+
+
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:37:00 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1HkarqhZQnx8bFu36Nt7QkEwLIWgEWs/h0H9sIdOvqpLmSmnvm3raCgaUlnq4L+j1ta5j7k2R7EzSvls30WiFg==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:39:56 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1HkarqhZQnx8bFu36Nt7QkEwLIWgEWs/h0H9sIdOvqpLmSmnvm3raCgaUlnq4L+j1ta5j7k2R7EzSvls30WiFg==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started GET "/users/2" for 127.0.0.1 at 2018-02-06 00:40:10 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (1.7ms)
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 32ms (Views: 28.1ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:40:12 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+kEbkiEiWKeLEcU4dQ5+l3bbHpmRmsNQm/SM99ce65cCTdnXrAgdspaTvrj7/0byj35cH9hR4P2ZNbvh1dnEg==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:40:25 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+kEbkiEiWKeLEcU4dQ5+l3bbHpmRmsNQm/SM99ce65cCTdnXrAgdspaTvrj7/0byj35cH9hR4P2ZNbvh1dnEg==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:40:37 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+kEbkiEiWKeLEcU4dQ5+l3bbHpmRmsNQm/SM99ce65cCTdnXrAgdspaTvrj7/0byj35cH9hR4P2ZNbvh1dnEg==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started GET "/users/" for 127.0.0.1 at 2018-02-06 00:40:45 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/2" for 127.0.0.1 at 2018-02-06 00:40:49 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (1.8ms)
+  Rendered users/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 32ms (Views: 28.1ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:40:51 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5Df0HNzztYT7X7gz3B1hy/aFy44Vzr12qztORjmT4ZR718cVyscckK8psd3eJqUqYWNehAzpkfgfMEqaYZj9KA==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:41:56 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5Df0HNzztYT7X7gz3B1hy/aFy44Vzr12qztORjmT4ZR718cVyscckK8psd3eJqUqYWNehAzpkfgfMEqaYZj9KA==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PUT "/__web_console/repl_sessions/1d64da9dab2a880174bb17a96b2ebccf" for 127.0.0.1 at 2018-02-06 00:42:21 +0400
+Started PUT "/__web_console/repl_sessions/1d64da9dab2a880174bb17a96b2ebccf" for 127.0.0.1 at 2018-02-06 00:42:22 +0400
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:42:39 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5Df0HNzztYT7X7gz3B1hy/aFy44Vzr12qztORjmT4ZR718cVyscckK8psd3eJqUqYWNehAzpkfgfMEqaYZj9KA==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started GET "/users/2" for 127.0.0.1 at 2018-02-06 00:42:46 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (1.7ms)
+  Rendered users/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 33ms (Views: 28.7ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:42:51 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fvr6lZM4GXNFS2t8ecqfYwO5uJdouoqgQ8smM8dSJnfhGsmchQywZxE9YpJ78VuClF8tnXGdpi73wCLvn1k6yw==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:43:05 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fvr6lZM4GXNFS2t8ecqfYwO5uJdouoqgQ8smM8dSJnfhGsmchQywZxE9YpJ78VuClF8tnXGdpi73wCLvn1k6yw==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
