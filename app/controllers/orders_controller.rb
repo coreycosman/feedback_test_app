@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def update
     if current_user.role == "charity"
-      @order = Order.find(params[:user_id])
+      @order = Order.find(params[:id])
       @order.order_status = "charity"
       find_user
       charity_order_submit?
@@ -33,7 +33,6 @@ class OrdersController < ApplicationController
     end
 
     def corporation_order_submit?
-      @order = Order.new(order_params)
       if @order.save
         current_user.orders << @order
         flash.notice = "Order submitted"
@@ -44,8 +43,7 @@ class OrdersController < ApplicationController
     end
 
     def charity_order_submit?
-
-      if @order.update(claim_params)
+      if @order.update(claim_params.merge(order_status: "charity"))
         current_user.orders << @order
         flash.notice = "Order claimed"
         redirect_to user_path(@user.id)
@@ -55,7 +53,7 @@ class OrdersController < ApplicationController
     end
 
     def find_user
-      @user = User.find(params[:id])
+      @user = User.find(params[:user_id])
     end
 
 
