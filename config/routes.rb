@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "home#index"
   get "home/index"
   resources :users, only: %i(show create new) do
-    resources :orders, only: %i(create)
+    resources :orders, only: %i(create update)
   end
   resources :sessions, only: %i(create new destroy)
 

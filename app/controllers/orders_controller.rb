@@ -1,36 +1,38 @@
 class OrdersController < ApplicationController
 
+
+
   def create
 
-    if current_user.role == "corporation"
+   if current_user.role == "corporation"
       @order = Order.new(order_params)
       @order.order_status = "open"
       find_user
       corporation_order_submit?
-
-
-    elsif current_user.role == "driver"
-      @order.order_status == "driver"
-      find_user
-      driver_order_submit?
     end
-
-
   end
 
   def update
-    @order = Order.find_by(params[:id])
+    if current_user.role == "charity"
+      @order = Order.find(params[:id])
+      @order.order_status = "charity"
+      find_user
+      charity_order_submit?
+    end
   end
 
 
   private
 
     def order_params
-      params.require(:order).permit %i(date pickup_start pickup_end food_description dropoff_latest driver_pickup_time driver_dropoff_time)
+      params.require(:order).permit %i(date pickup_start pickup_end food_description)
+    end
+
+    def claim_params
+      params.require(:order).permit %i(dropoff_latest)
     end
 
     def corporation_order_submit?
-      @order = Order.new(order_params)
       if @order.save
         current_user.orders << @order
         flash.notice = "Order submitted"
@@ -40,9 +42,8 @@ class OrdersController < ApplicationController
       end
     end
 
-    def driver_order_submit?
-      @order = Order.new(order_params)
-      if @order.save
+    def charity_order_submit?
+      if @order.update(claim_params.merge(order_status: "charity"))
         current_user.orders << @order
         flash.notice = "Order claimed"
         redirect_to user_path(@user.id)
@@ -52,7 +53,7 @@ class OrdersController < ApplicationController
     end
 
     def find_user
-      @user = User.find_by(params[:id])
+      @user = User.find(params[:user_id])
     end
 
 

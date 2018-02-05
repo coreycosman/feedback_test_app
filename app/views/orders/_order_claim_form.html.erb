@@ -1,0 +1,11 @@
+<p> Claim </p>
+
+<%= form_for [user, claim] do |f| %>
+<div>
+  <%= f.label :dropoff_latest %>
+  <%= f.datetime_local_field :dropoff_latest %>
+</div>
+<div>
+  <%= f.submit "Claim Order", {confrim: "Your Order is Claimed"}  %>
+</div>
+<% end %>

@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       if current_user && @current_user.role == "corporation"
         @orders = @current_user.orders
 
-      elsif current_user && @current_user.role == "driver"
+      elsif current_user && @current_user.role == "charity"
         @orders = Order.all.where(order_status: "open")
       end
     end
