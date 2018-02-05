@@ -8145,3 +8145,161 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 41ms (Views: 36.3ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-02-06 01:52:17 +0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 279ms (Views: 261.2ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-06 01:52:22 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 37.3ms | ActiveRecord: 11.9ms)
+
+
+Started DELETE "/sessions/2" for 127.0.0.1 at 2018-02-06 01:52:26 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6HngZZ6Fmc21OM1ZWBvf/9P0f430yYjcG2v5YicUs5B3mdNsiLEw2eFOxLdaIBseRBLqh+3upFKvYP2+fx+vLA==", "id"=>"2"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-06 01:52:26 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 36ms (Views: 33.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-02-06 01:52:27 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 47ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-02-06 01:52:33 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"or05GwfArhpfnu2i5LFNv8F3pO3JXRLieVZtQrOO2EZcI25ObbsmyERTzL0tSNi77+DsH5u/Fsz3Tm/iHhvMLg==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 117ms (Views: 42.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-02-06 01:52:41 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jJ9xcPcbX8DOQPYaw530VFxnqe7NKFU3WuIdkrWs9E0Tf0J54S/21Jo2//TBpjC1y4E85NQPebnu6RlO7afo8Q==", "email"=>"meow@meow.meow", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.meow"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 73ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-06 01:52:41 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (14.5ms)
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "orders_users" ON "orders"."id" = "orders_users"."order_id" WHERE "orders_users"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 120ms (Views: 59.0ms | ActiveRecord: 14.7ms)
+
+
+Started POST "/users/1/orders" for 127.0.0.1 at 2018-02-06 01:52:59 +0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"INm3AsQJvd1+K3C20YDZzzADdEIcqPJ8bYpIFLmdlse/OYQL0j0UySpdeVjTux0up+XhSAWP3vLZgUzI4ZaKew==", "order"=>{"date"=>"2018-02-02", "pickup_start"=>"2019-02-02T14:01", "pickup_end"=>"2019-02-02T14:01", "food_description"=>""}, "commit"=>"Create Order", "user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("order_status", "date", "pickup_start", "pickup_end", "food_description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["order_status", "open"], ["date", "2018-02-02"], ["pickup_start", "2019-02-02 14:01:00"], ["pickup_end", "2019-02-02 14:01:00"], ["food_description", ""], ["created_at", "2018-02-05 21:52:59.627924"], ["updated_at", "2018-02-05 21:52:59.627924"]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["order_id", 11]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 31ms (ActiveRecord: 12.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-06 01:52:59 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered orders/_order_form.html.erb (2.8ms)
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" INNER JOIN "orders_users" ON "orders"."id" = "orders_users"."order_id" WHERE "orders_users"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 41ms (Views: 35.5ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/sessions/1" for 127.0.0.1 at 2018-02-06 01:53:16 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+ltEUJdIspnBfZxT3n1arZr9bL8QPx/mfkHp8CBLYsllu3dZgXwbjZULlb3cRp5MDRv5tQkYM2jKSu0seEB+dQ==", "id"=>"1"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-06 01:53:16 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-02-06 01:53:18 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 38ms (Views: 34.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-02-06 01:53:24 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+aWgsF0NMmzGeoX16nt8/3L6ua70KsdxJpZg9VZK8Z0HO/flN3a6vt23pOojgun7XG3xXKbIw1+ojmJV+9/l9Q==", "email"=>"meow@meow.com", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 77ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-06 01:53:24 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (1.6ms)
+  Rendered users/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 36ms (Views: 31.5ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/users/2/orders/11" for 127.0.0.1 at 2018-02-06 01:53:29 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WECnbdtVy91b9sG2kseEzcMJop8AbCSj1BjaDI9xwGTHoJRkzWFiyQ+AyFiQ/EAsVO83lRlLCC1gE97Q13rc2A==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"11"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "orders" SET "order_status" = $1, "dropoff_latest" = $2, "updated_at" = $3 WHERE "orders"."id" = $4[0m  [["order_status", "charity"], ["dropoff_latest", "2018-01-01 01:00:00"], ["updated_at", "2018-02-05 21:53:29.999369"], ["id", 11]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders_users" ("user_id", "order_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["order_id", 11]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 18ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-06 01:53:30 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered users/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 30ms (Views: 26.1ms | ActiveRecord: 0.9ms)
+
+

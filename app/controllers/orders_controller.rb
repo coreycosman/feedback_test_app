@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
     end
 
     def charity_order_submit?
-      if @order.update(claim_params.merge(order_status: "charity"))
+      if @order.update(claim_params)
         current_user.orders << @order
         flash.notice = "Order claimed"
         redirect_to user_path(@user.id)
