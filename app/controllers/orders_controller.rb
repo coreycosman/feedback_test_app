@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def update
     if current_user.role == "charity"
-      @order = Order.find_by(params[:user_id])
+      @order = Order.find(params[:user_id])
       @order.order_status = "charity"
       find_user
       charity_order_submit?

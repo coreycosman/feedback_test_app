@@ -7018,3 +7018,182 @@ LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
 : SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
   
 app/controllers/orders_controller.rb:17:in `update'
+Started GET "/" for 127.0.0.1 at 2018-02-06 00:45:56 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/sessions/2" for 127.0.0.1 at 2018-02-06 00:45:58 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fWHSaleWeCc38Fth7CWEPn/ZLwSisBS3k9/AiKEv0FLigeFjQaLRM2OGUo/uHkDf6D+6DruXODkn1MRU+STM7g==", "id"=>"2"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-06 00:45:58 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 41ms (Views: 38.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-02-06 00:45:59 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 37ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-02-06 00:46:04 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fAtZIbUnP+FBjV8FFmG2Uipp93PUxnAUtj+ijdnPOheClQ5031y3M1pAfhrfmCNWBP6/gYYkdDo4J6AtdFoufw==", "email"=>"meow@meow.com", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 72ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-06 00:46:04 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (1.6ms)
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 30ms (Views: 26.5ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:46:07 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qB2Rmq+hiLLuUBHeoORKbm8jnHOzVcX3TkrssgGsOWw3/aKTuZUhpromGDCi346P+MUJeapy6Xn6QehuWacl0A==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:46:50 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qB2Rmq+hiLLuUBHeoORKbm8jnHOzVcX3TkrssgGsOWw3/aKTuZUhpromGDCi346P+MUJeapy6Xn6QehuWacl0A==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
+Started GET "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:47:44 +0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/orders/1"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-02-06 00:47:49 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/sessions/2" for 127.0.0.1 at 2018-02-06 00:47:51 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Y7guP98UcdPBXjO1Lv+zBsYrnHkTrHXuFFltKd6koVP8WB02ySDYx5UoOlssxHfnUc0JcwqLWWCgUmn1hq+97w==", "id"=>"2"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-06 00:47:51 +0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-02-06 00:47:56 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-02-06 00:47:56 +0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 110ms (Views: 107.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-02-06 00:48:07 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0SzwapqtMyEpB28v5b1djmyb+EixL20fqHLJ1EDGZe0vsqc/8Na78zLKTjAsRMiKQgywuuPNaTEmast07VNxhQ==", "email"=>"meow@meow.com", "password"=>"[FILTERED]", "commit"=>"Log-In"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "meow@meow.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 74ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-06 00:48:07 +0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_status" = $1[0m  [["order_status", "open"]]
+  Rendered orders/_order_claim_form.html.erb (1.6ms)
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 34ms (Views: 30.0ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/2/orders/1" for 127.0.0.1 at 2018-02-06 00:48:09 +0400
+Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b4zsbYVsPlCguOxNtT8DE/AUehUdCZdqbmGCrjLZeZXwbN9kk1iXRPTO5aO3BMfyZ/LvHwQuu+TaaoZyatJlKQ==", "order"=>{"dropoff_latest"=>"2018-01-01T01:00:00"}, "commit"=>"Claim Order", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1
+                                                ^
+: SELECT  "orders".* FROM "orders" WHERE (2) LIMIT $1):
+  
+app/controllers/orders_controller.rb:17:in `update'
